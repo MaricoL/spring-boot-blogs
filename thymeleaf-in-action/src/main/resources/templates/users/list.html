@@ -24,7 +24,7 @@
     <tbody>
     <tr th:each="user : ${userModel.userList}">
         <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
+        <td><a th:text="${user.name}" th:href="@{'/users/modify/' + ${user.id}}"></a></td>
     </tr>
     </tbody>
 </table>

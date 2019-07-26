@@ -10,8 +10,10 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <form th:action="@{~/users}" method="post" th:object="${userModel.user}">
+    <input type="hidden" name="id" th:value="*{id}"/>
     用户名：<input type="text" name="name" th:value="*{name}"/><br/>
-    <input type="submit" value="提交"/>
+    <input type="submit" th:value="*{name == null}?'提交':'更新'"/>
+    <button onclick="'/users/delete/' + [[*{id}]]" th:if="*{name ne null}">删除</button>
 </form>
 
 
