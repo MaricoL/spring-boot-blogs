@@ -25,6 +25,9 @@ dependencies {
 	// 添加 Jpa 的依赖
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 
+	// 添加 H2 内存数据库
+	runtime group: 'com.h2database', name: 'h2', version: '1.4.199'
+
 	// 添加 Mysql 的依赖
 	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
 
