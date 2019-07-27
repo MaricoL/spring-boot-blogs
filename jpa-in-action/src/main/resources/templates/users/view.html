@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${userModel.title]]</title>
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<form th:action="@{/user}"></form>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>
