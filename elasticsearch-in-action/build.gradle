@@ -1,0 +1,50 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.BUILD-SNAPSHOT'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.waylau'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	// mavenCentral()
+	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// 添加 Thymeleaf 的依赖
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+	// 添加 Jpa 的依赖
+//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+//	// 添加 H2 内存数据库
+//	runtime group: 'com.h2database', name: 'h2', version: '1.4.199'
+
+	// 添加 Mysql 的依赖
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+
+	// 添加 热部署 的依赖
+	compile("org.springframework.boot:spring-boot-devtools")
+
+
+	// 添加 Elastic Search 的依赖
+	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+	
+	// 添加 JNA 的依赖
+	compile group: 'com.sun.jna', name: 'jna', version: '3.0.9'
+	
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+	useJUnitPlatform()
+}

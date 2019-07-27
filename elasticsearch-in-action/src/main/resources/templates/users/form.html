@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${userModel.title}]]</title>
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<form th:action="@{~/users}" method="post" th:object="${userModel.user}">
+    <input type="hidden" name="id" th:value="*{id}"/>
+    用户名：<input type="text" name="name" th:value="*{name}"/><br/>
+    <input type="submit" th:value="*{name == null}?'提交':'更新'"/>
+    <a th:href="@{'/users/delete/' + *{id}}" th:id="*{name ne null}">删除</a>
+</form>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
