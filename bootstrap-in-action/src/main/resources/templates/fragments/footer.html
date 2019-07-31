@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+
+    <footer th:fragment="footer" class="bg-dark mt-3 py-2">
+        <div class="container">
+            <p class="text-center text-white m-auto">@ 2019 MrJimmyLin</p>
+        </div>
+
+
+        <!-- JS -->
+        <script src="../../static/js/jquery.min.js" th:src="@{~/js/jquery.min.js}"></script>
+        <script src="../../static/js/bootstrap.bundle.min.js" th:src="@{~/js/bootstrap.bundle.min.js}"></script>
+        <script src="../../static/js/wow.min.js" th:src="@{~/js/wow.min.js}"></script>
+    </footer>
+
+</body>
+</html>

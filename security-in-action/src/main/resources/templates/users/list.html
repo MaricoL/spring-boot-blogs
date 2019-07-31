@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+
+<div class="container">
+    <h3 th:text="${userModel.title}"></h3>
+    <a class="btn btn-outline-success mb-2" th:href="@{~/users/form}">创建用户</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${userModel.userList.size()} eq 0">
+                <td colspan="2">没有用户数据！</td>
+            </tr>
+
+            <tr th:each="user : ${userModel.userList}">
+                <td th:text="${user.id}"></td>
+                <td><a th:text="${user.name}" th:href="@{'/users/modify/' + ${user.id}}"></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

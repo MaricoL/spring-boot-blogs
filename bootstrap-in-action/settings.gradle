@@ -12,4 +12,4 @@ pluginManagement {
 		}
 	}
 }
-rootProject.name = 'jpa-in-action'
+rootProject.name = 'bootstrap-in-action'

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="~{fragments/header :: header}">
+</head>
+<body>
+
+<div class="container">
+<!--    <form th:action="@{~/users}" method="post" th:object="${userModel.user}">
+        <input type="hidden" name="id" th:value="*{id}"/>
+        用户名：<input type="text" name="name" th:value="*{name}"/><br/>
+        <input type="submit" th:value="*{name == null}?'提交':'更新'"/>
+        <a th:href="@{'/users/delete/' + *{id}}" th:id="*{name ne null}">删除</a>
+    </form>-->
+
+    <form class="mt-2" th:action="@{~/users}" method="post" th:object="${userModel.user}" >
+        <input type="hidden" name="id" th:value="*{id}"/>
+        <div class="form-group row">
+            <label for="username"  class="col-sm-2 col-form-label">用户名：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="username" name="name" th:value="*{name}"/>
+                <small id="usernameHelp" class="form-text text-muted">我们不会透露您的个人信息！</small>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" th:value="*{name == null}?'提交':'更新'"/>
+        <a class="btn btn-danger" th:href="@{'/users/delete/' + *{id}}" th:id="*{name ne null}">删除</a>
+    </form>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
